@@ -138,6 +138,9 @@ info_button.pack(pady=20)
 logout_button = tk.Button(main_frame, text="Logout", command=show_login_frame, font=("Helvetica", 14), bg="red", fg="white")
 logout_button.pack(pady=20)
 
+def coba_coba() :
+    print("cek")
+
 # Initially show login frame
 show_login_frame()
 
