@@ -84,14 +84,24 @@ def show_main(username=None):
     main_frame.place(x=650, y=380)
     if username:
         welcome_label.config(text=f"Welcome, {username} to this app!")
+
+def update_background(event=None):
+    new_width = root.winfo_width()
+    new_height = root.winfo_height()
+    resized_bg_image = bg_image.resize((new_width, new_height), Image.Resampling.LANCZOS)
+    bg_photo = ImageTk.PhotoImage(resized_bg_image)
+    canvas.delete("bg")  # Hapus gambar latar belakang yang sudah ada
+    canvas.create_image(0, 0, image=bg_photo, anchor="nw", tags="bg")  # Tambahkan gambar yang baru
+    canvas.image = bg_photo  # Simpan referensi untuk mencegah pengumpulan sampah
         
 # Main window
-root = Tk()
+root = tk.Tk()
 root.title("Login and Registration System")
 root.geometry("1200x800")
 
 # Load and set background image
-bg_image = Image.open("C:/TUBES PRAKPROK/Mencobaaa/wisata.png")
+bg_image = Image.open("C:\\PROKOM\\Tugas-Besar\\Tugas-Besar\\wisata.png")
+bg_image = bg_image.resize((1200,800), Image.Resampling.LANCZOS)
 bg_photo = ImageTk.PhotoImage(bg_image)
 
 # Create a canvas with the background image
@@ -143,5 +153,7 @@ def coba_coba() :
 
 # Initially show login frame
 show_login_frame()
+
+root.bind("<Configure>", update_background)
 
 root.mainloop()
