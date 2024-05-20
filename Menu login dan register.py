@@ -1,7 +1,7 @@
 import csv
-import os
-from tkinter import Tk, Label, Entry, Button, Frame, messagebox
 import tkinter as tk
+from tkinter import messagebox
+from tkinter import Entry, Button, Frame, Label
 from PIL import Image, ImageTk
 
 def register():
@@ -90,24 +90,22 @@ def update_background(event=None):
     new_height = root.winfo_height()
     resized_bg_image = bg_image.resize((new_width, new_height), Image.Resampling.LANCZOS)
     bg_photo = ImageTk.PhotoImage(resized_bg_image)
-    canvas.delete("bg")  # Hapus gambar latar belakang yang sudah ada
-    canvas.create_image(0, 0, image=bg_photo, anchor="nw", tags="bg")  # Tambahkan gambar yang baru
-    canvas.image = bg_photo  # Simpan referensi untuk mencegah pengumpulan sampah
-        
+    background_label.config(image=bg_photo)
+    background_label.image = bg_photo
+
 # Main window
 root = tk.Tk()
 root.title("Login and Registration System")
 root.geometry("1200x800")
 
 # Load and set background image
-bg_image = Image.open("C:\\PROKOM\\Tugas-Besar\\Tugas-Besar\\wisata.png")
-bg_image = bg_image.resize((1200,800), Image.Resampling.LANCZOS)
+bg_image = Image.open("C:/PROKOM/Tugas-Besar/Tugas-Besar/wisata.png")
+bg_image = bg_image.resize((1200, 800), Image.Resampling.LANCZOS)
 bg_photo = ImageTk.PhotoImage(bg_image)
 
-# Create a canvas with the background image
-canvas = tk.Canvas(root, width=1200, height=800)
-canvas.pack(fill="both", expand=True)
-canvas.create_image(-175, -50, image=bg_photo, anchor="nw")
+# Create a label with the background image
+background_label = tk.Label(root, image=bg_photo)
+background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 # Register Frame
 register_frame = Frame(root, bg="white")
@@ -147,9 +145,6 @@ info_button.pack(pady=20)
 
 logout_button = tk.Button(main_frame, text="Logout", command=show_login_frame, font=("Helvetica", 14), bg="red", fg="white")
 logout_button.pack(pady=20)
-
-def coba_coba() :
-    print("cek")
 
 # Initially show login frame
 show_login_frame()
