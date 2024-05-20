@@ -1,8 +1,9 @@
-import csv
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import Entry, Button, Frame, Label
 from PIL import Image, ImageTk
+from openpyxl import Workbook, load_workbook
+import os
 
 def register():
     username = entry_register_username.get()
@@ -13,16 +14,18 @@ def register():
         return
 
     dataakun = []
+    file_path = 'dataakun.xlsx'
 
-    try:
-        with open('dataakun.csv', 'r') as file:
-            csv_reader = csv.reader(file, delimiter=",")
-            for row in csv_reader:
-                dataakun.append({'username': row[0], 'password': row[1]})
-    except FileNotFoundError:
-        with open('dataakun.csv', 'w', newline='') as file:
-            writer = csv.DictWriter(file, fieldnames=['username', 'password'])
-            writer.writeheader()
+    if os.path.exists(file_path):
+        workbook = load_workbook(file_path)
+        sheet = workbook.active
+        for row in sheet.iter_rows(min_row=2, values_only=True):
+            dataakun.append({'username': row[0], 'password': row[1]})
+    else:
+        workbook = Workbook()
+        sheet = workbook.active
+        sheet.append(['username', 'password'])
+        workbook.save(file_path)
 
     username_ada = False
 
@@ -34,9 +37,8 @@ def register():
 
     if not username_ada:
         databaru = {'username': username, 'password': password}
-        with open('dataakun.csv', 'a', newline='') as file:
-            writer = csv.DictWriter(file, fieldnames=['username', 'password'])
-            writer.writerow(databaru)
+        sheet.append([username, password])
+        workbook.save(file_path)
         messagebox.showinfo("Success", "Registration successful")
 
 def login():
@@ -48,13 +50,15 @@ def login():
         return
 
     dataakun = []
-    try:
-        with open('dataakun.csv', 'r') as file:
-            csv_reader = csv.reader(file, delimiter=",")
-            for row in csv_reader:
-                dataakun.append({'username': row[0], 'password': row[1]})
-    except FileNotFoundError:
-        messagebox.showwarning("Error", "File dataakun.csv not found")
+    file_path = 'dataakun.xlsx'
+
+    if os.path.exists(file_path):
+        workbook = load_workbook(file_path)
+        sheet = workbook.active
+        for row in sheet.iter_rows(min_row=2, values_only=True):
+            dataakun.append({'username': row[0], 'password': row[1]})
+    else:
+        messagebox.showwarning("Error", "File dataakun.xlsx not found")
         return
 
     login_berhasil = False
@@ -69,19 +73,19 @@ def login():
         messagebox.showwarning("Error", "Account not found or incorrect password")
 
 def show_register_frame():
-    register_frame.place(x=650, y=380)
+    register_frame.place(x=550, y=360)
     login_frame.place_forget()
     main_frame.place_forget()
 
 def show_login_frame():
-    login_frame.place(x=650, y=380)
+    login_frame.place(x=550, y=360)
     register_frame.place_forget()
     main_frame.place_forget()
 
 def show_main(username=None):
     login_frame.place_forget()
     register_frame.place_forget()
-    main_frame.place(x=650, y=380)
+    main_frame.place(x=550, y=360)
     if username:
         welcome_label.config(text=f"Welcome, {username} to this app!")
 
@@ -99,7 +103,7 @@ root.title("Login and Registration System")
 root.geometry("1200x800")
 
 # Load and set background image
-bg_image = Image.open("C:/PROKOM/Tugas-Besar/Tugas-Besar/wisata.png")
+bg_image = Image.open("C:/Tugas Besar Praktikum Prokom/wisata.png")
 bg_image = bg_image.resize((1200, 800), Image.Resampling.LANCZOS)
 bg_photo = ImageTk.PhotoImage(bg_image)
 
