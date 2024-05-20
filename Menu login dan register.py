@@ -83,11 +83,25 @@ def show_login_frame():
     main_frame.place_forget()
 
 def show_main(username=None):
-    login_frame.place_forget()
-    register_frame.place_forget()
-    main_frame.place(x=550, y=360)
-    if username:
-        welcome_label.config(text=f"Welcome, {username} to this app!")
+    root.withdraw()  # Sembunyikan window utama
+    global window
+    window = tk.Toplevel(root)
+    window.title("Selamat Datang")
+    window.geometry("1200x800")
+    window.configure(bg="White")
+    window.resizable(True, True)
+
+    frame = Frame(window, width=350, height=175, bg="Gray")
+    frame.place(x=465, y=450)
+
+    Button(frame, width=38, height=1, text="Lanjutkan", fg="white", bg="#57a1f8").place(x=40, y=85)
+    Button(frame, width=38, height=1, text="Logout", fg="white", bg="#57a1f8", command=back_login).place(x=40, y=115)
+
+    window.mainloop()
+
+def back_login():
+    window.destroy()
+    root.deiconify()  # Tampilkan kembali window utama
 
 def update_background(event=None):
     new_width = root.winfo_width()
@@ -103,7 +117,7 @@ root.title("Login and Registration System")
 root.geometry("1200x800")
 
 # Load and set background image
-bg_image = Image.open("C:/Tugas Besar Praktikum Prokom/wisata.png")
+bg_image = Image.open("C:\PROKOM\Tugas-Besar\Tugas-Besar\wisata.png")
 bg_image = bg_image.resize((1200, 800), Image.Resampling.LANCZOS)
 bg_photo = ImageTk.PhotoImage(bg_image)
 
