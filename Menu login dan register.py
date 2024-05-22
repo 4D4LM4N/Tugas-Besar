@@ -91,12 +91,13 @@ def show_main(username=None):
     window.configure(bg="White")
     window.resizable(True, True)
 
+    # Place the background image
     frame = Frame(window, width=350, height=175, bg="Gray")
     frame.place(x=465, y=450)
 
     Button(frame, width=38, height=1, text="Lanjutkan", fg="white", bg="#57a1f8").place(x=40, y=85)
     Button(frame, width=38, height=1, text="Logout", fg="white", bg="#57a1f8", command=back_login).place(x=40, y=115)
-
+    
     window.mainloop()
 
 def back_login():
@@ -117,7 +118,7 @@ root.title("Login and Registration System")
 root.geometry("1200x800")
 
 # Load and set background image
-bg_image = Image.open("C:\PROKOM\Tugas-Besar\Tugas-Besar\wisata.png")
+bg_image = Image.open("C:\PRAKTIKUM PROKOM\Tugas-Besar\wisata.png")
 bg_image = bg_image.resize((1200, 800), Image.Resampling.LANCZOS)
 bg_photo = ImageTk.PhotoImage(bg_image)
 
@@ -141,7 +142,7 @@ Button(register_frame, text="Go to Login", command=show_login_frame).grid(row=4,
 
 # Login Frame
 login_frame = Frame(root, bg="white")
-Label(login_frame, text="Login", font=("Helvetica", 14), bg="white").grid(row=0, columnspan=2, pady=10)
+Label(login_frame, text="LOGIN", font=("Helvetica", 24), bg="white").grid(row=0, columnspan=2, pady=10)
 Label(login_frame, text="Username", bg="white").grid(row=1, column=0, pady=5)
 Label(login_frame, text="Password", bg="white").grid(row=2, column=0, pady=5)
 
