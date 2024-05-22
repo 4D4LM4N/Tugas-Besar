@@ -91,7 +91,7 @@ def show_main(username=None):
     window.configure(bg="White")
     window.resizable(True, True)
 
-    new_bg_image = Image.open(r"C:\PROKOM\Tugas-Besar\Tugas-Besar\Selamat Datang!.png")
+    new_bg_image = Image.open(r"C:\PROKOM\Tugas-Besar\Tugas-Besar\Sapa.png")
     new_bg_image = new_bg_image.resize((1200, 800), Image.Resampling.LANCZOS)
     new_photo = ImageTk.PhotoImage(new_bg_image)
 
@@ -146,7 +146,7 @@ root.title("Login and Registration System")
 root.geometry("1200x800")
 
 # Load and set background image
-bg_image = Image.open(r"C:\PROKOM\Tugas-Besar\Tugas-Besar\wisata.png")
+bg_image = Image.open(r"C:\Tubes Sementara\wisata.png")
 bg_image = bg_image.resize((1200, 800), Image.Resampling.LANCZOS)
 bg_photo = ImageTk.PhotoImage(bg_image)
 
@@ -170,7 +170,7 @@ Button(register_frame, text="Go to Login", command=show_login_frame).grid(row=4,
 
 # Login Frame
 login_frame = Frame(root, bg="white")
-Label(login_frame, text="Login", font=("Helvetica", 14), bg="white").grid(row=0, columnspan=2, pady=10)
+Label(login_frame, text="LOGIN", font=("Helvetica", 14), bg="white").grid(row=0, columnspan=2, pady=10)
 Label(login_frame, text="Username", bg="white").grid(row=1, column=0, pady=5)
 Label(login_frame, text="Password", bg="white").grid(row=2, column=0, pady=5)
 
