@@ -83,20 +83,37 @@ def show_login_frame():
     main_frame.place_forget()
 
 def show_main(username=None):
-    root.withdraw()  # Sembunyikan window utama
     global window
+    root.withdraw()  # Sembunyikan window utama
     window = tk.Toplevel(root)
     window.title("Selamat Datang")
     window.geometry("1200x800")
     window.configure(bg="White")
     window.resizable(True, True)
 
-    frame = Frame(window, width=350, height=175, bg="Gray")
-    frame.place(x=465, y=450)
+    new_bg_image = Image.open(r"C:\PROKOM\Tugas-Besar\Tugas-Besar\Selamat Datang!.png")
+    new_bg_image = new_bg_image.resize((1200, 800), Image.Resampling.LANCZOS)
+    new_photo = ImageTk.PhotoImage(new_bg_image)
 
-    Button(frame, width=38, height=1, text="Lanjutkan", fg="white", bg="#57a1f8").place(x=40, y=85)
-    Button(frame, width=38, height=1, text="Logout", fg="white", bg="#57a1f8", command=back_login).place(x=40, y=115)
+    background_label = tk.Label(window, image=new_photo)
+    background_label.place(x=0, y=0, relwidth=1, relheight=1)
+    
+    new_frame = Frame(window, width=350, height=100, bg="#354f00")
+    new_frame.place(x=465, y=450)
 
+    Button(new_frame, width=38, height=1, text="Lanjutkan", fg="white", bg="#57a1f8", command=halaman_utama).place(x=40, y=20)
+    Button(new_frame, width=38, height=1, text="Logout", fg="white", bg="#57a1f8", command=back_login).place(x=40, y=50)
+
+    def new_background(event=None):
+        width = window.winfo_width()
+        height = window.winfo_height()
+        resized_image = new_bg_image.resize((width, height), Image.Resampling.LANCZOS)
+        new_photo = ImageTk.PhotoImage(resized_image)
+        background_label.config(image=new_photo)
+        background_label.image = new_photo
+
+
+    window.bind("<Configure>", new_background)
     window.mainloop()
 
 def back_login():
@@ -111,13 +128,25 @@ def update_background(event=None):
     background_label.config(image=bg_photo)
     background_label.image = bg_photo
 
+def halaman_utama():
+    window.withdraw()
+    window2 = tk.Tk()
+    window2.title("login")
+    window2.geometry("1200x800")
+    window2.configure(bg="White")
+    window2.resizable(True,True)
+
+def balik():
+    window.destroy()
+
+
 # Main window
 root = tk.Tk()
 root.title("Login and Registration System")
 root.geometry("1200x800")
 
 # Load and set background image
-bg_image = Image.open("C:\PROKOM\Tugas-Besar\Tugas-Besar\wisata.png")
+bg_image = Image.open(r"C:\PROKOM\Tugas-Besar\Tugas-Besar\wisata.png")
 bg_image = bg_image.resize((1200, 800), Image.Resampling.LANCZOS)
 bg_photo = ImageTk.PhotoImage(bg_image)
 
