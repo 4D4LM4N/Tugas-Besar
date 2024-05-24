@@ -65,7 +65,7 @@ def login():
     for akun in dataakun:
         if username == akun['username'] and password == akun['password']:
             messagebox.showinfo("Success", "Login successful")
-            show_main(username)  # Arahkan ke halaman utama setelah login berhasil
+            show_main(username)
             login_berhasil = True
             break
 
@@ -83,20 +83,21 @@ def show_login_frame():
     main_frame.place_forget()
 
 def show_main(username=None):
+    root.withdraw()
     global window
-    root.withdraw()  # Sembunyikan window utama
     window = tk.Toplevel(root)
     window.title("Selamat Datang")
     window.geometry("1200x800")
     window.configure(bg="White")
     window.resizable(True, True)
 
-    new_bg_image = Image.open(r"C:\PROKOM\Tugas-Besar\Tugas-Besar\Sapa.png")
+    new_bg_image = Image.open(r"C:\Tubes Sementara\Selamat Datang!.png")
     new_bg_image = new_bg_image.resize((1200, 800), Image.Resampling.LANCZOS)
     new_photo = ImageTk.PhotoImage(new_bg_image)
 
     background_label = tk.Label(window, image=new_photo)
     background_label.place(x=0, y=0, relwidth=1, relheight=1)
+    background_label.image = new_photo
     
     new_frame = Frame(window, width=350, height=100, bg="#354f00")
     new_frame.place(x=465, y=450)
@@ -112,13 +113,12 @@ def show_main(username=None):
         background_label.config(image=new_photo)
         background_label.image = new_photo
 
-
     window.bind("<Configure>", new_background)
     window.mainloop()
 
 def back_login():
     window.destroy()
-    root.deiconify()  # Tampilkan kembali window utama
+    root.deiconify()
 
 def update_background(event=None):
     new_width = root.winfo_width()
@@ -130,15 +130,31 @@ def update_background(event=None):
 
 def halaman_utama():
     window.withdraw()
-    window2 = tk.Tk()
-    window2.title("login")
+    global window2
+    window2 = tk.Toplevel(window)
+    window2.title("Halaman Utama")
     window2.geometry("1200x800")
     window2.configure(bg="White")
-    window2.resizable(True,True)
+    window2.resizable(True, True)
 
-def balik():
-    window.destroy()
+    backg_image = Image.open(r"C:\Tubes Sementara\dasar.png")
+    backg_image = backg_image.resize((1200, 800), Image.Resampling.LANCZOS)
+    photo_baru = ImageTk.PhotoImage(backg_image)
 
+    bg_label = tk.Label(window2, image=photo_baru)
+    bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+    bg_label.image = photo_baru
+
+    def bg_baru(event=None):
+        width_baru = window2.winfo_width()
+        height_baru = window2.winfo_height()
+        resized_image_baru = backg_image.resize((width_baru, height_baru), Image.Resampling.LANCZOS)
+        photo_baru = ImageTk.PhotoImage(resized_image_baru)
+        bg_label.config(image=photo_baru)
+        bg_label.image = photo_baru
+
+    window2.bind("<Configure>", bg_baru)
+    window2.mainloop()
 
 # Main window
 root = tk.Tk()
@@ -153,6 +169,7 @@ bg_photo = ImageTk.PhotoImage(bg_image)
 # Create a label with the background image
 background_label = tk.Label(root, image=bg_photo)
 background_label.place(x=0, y=0, relwidth=1, relheight=1)
+background_label.image = bg_photo
 
 # Register Frame
 register_frame = Frame(root, bg="white")
