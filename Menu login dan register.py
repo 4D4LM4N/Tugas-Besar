@@ -248,7 +248,7 @@ def Memilih_Wisata():
     Tumurun.place(x=300, y=620)
     deskripsi1 = "Museum Tumurun yang terletak di Solo, Jawa Tengah adalah museum yang menampilkan seni kontemporer dan interaktif dengan konsep modern yang mendalam."
     deskripsi2 = "Pengunjung bisa menikmati seni kontemporer, pameran interaktif, ruangan tekamtik, dan juga fasilitas fotografi."
-    deskripsi3 = "Dengan harga Rp 30.000,00/orang, Museum Tumurun dapat menjadi tempat yang menarik bagi pecinta seni dan pengunjung yang ingin merasakan pengalaman seni yang berbeda dan menginspirasi."
+    deskripsi3 = "Dengan harga Rp 30.000,00/orang, Museum Tumurun dapat menjadi tempat yang menarik bagi pecinta seni dan pengunjung yang ingin merasakan pengalaman seni yang berbeda dan menginspirasi.Anda bisa merasakan petualangan seru serta menambah pengetahuan tentang dunia satwa. Dengan fasilitas lengkap dan pengalaman yang edukatif."
 
     label_deskripsi1 = Label(Tumurun, text=deskripsi1, bg="#354f00", fg="white")
     label_deskripsi1.pack(pady=10)
