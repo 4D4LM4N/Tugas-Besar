@@ -207,9 +207,9 @@ def Memilih_Wisata():
 
     Lokananta = Frame(window3, width=1000, height=100, bg="#354f00")
     Lokananta.place(x=300, y=190)
-    deskripsi1 = "Solo Safari adalah tempat wisata baru yang menarik di Solo, Jawa Tengah. Diresmikan pada tahun 2023, Solo Safari menawarkan pengalaman wisata alam dan edukasi dengan konsep kebun binatang modern."
-    deskripsi2 = "Fasilitas yang didapat apabila berkunjung ke Solo Safari antara lain: Zona Hewan, Petting Zoo, Safari Ride, dan Edukasi Konservasi."
-    deskripsi3 = "Dengan harga Rp 25.000,00/orang, Anda bisa merasakan petualangan seru serta menambah pengetahuan tentang dunia satwa. Dengan fasilitas lengkap dan pengalaman yang edukatif."
+    deskripsi1 = "Museum Lokananta di Solo, Jawa Tengah, adalah destinasi wisata bersejarah yang menampilkan perjalanan industri musik Indonesia sebagai studio rekaman pertama dan tertua di Indonesia."
+    deskripsi2 = "Fasilitas yang didapat apabila berkunjung ke Museum Lokananta antara lain: Koleksi Rekaman, Studio Rekaman, Galeri Sejarah, dan Ruang Edukasi."
+    deskripsi3 = "Hanya dengan harga Rp 15.000,00/orang, Lokananta bisa menjadi tempat yang sempurna untuk pecinta musik dan sejarah serta menawarkan pengalaman unik yang memadukan edukasi dan nostalgia."
 
     label_deskripsi1 = Label(Lokananta, text=deskripsi1, bg="#354f00", fg="white")
     label_deskripsi1.pack(pady=10)
@@ -220,9 +220,9 @@ def Memilih_Wisata():
 
     Balekambang = Frame(window3, width=1000, height=100, bg="#354f00")
     Balekambang.place(x=300, y=330)
-    deskripsi1 = "Solo Safari adalah tempat wisata baru yang menarik di Solo, Jawa Tengah. Diresmikan pada tahun 2023, Solo Safari menawarkan pengalaman wisata alam dan edukasi dengan konsep kebun binatang modern."
-    deskripsi2 = "Fasilitas yang didapat apabila berkunjung ke Solo Safari antara lain: Zona Hewan, Petting Zoo, Safari Ride, dan Edukasi Konservasi."
-    deskripsi3 = "Dengan harga Rp 25.000,00/orang, Anda bisa merasakan petualangan seru serta menambah pengetahuan tentang dunia satwa. Dengan fasilitas lengkap dan pengalaman yang edukatif."
+    deskripsi1 = "Balekambang adalah tempat di Solo, Jawa Tengah yang menggabungkan keindahan alam dan rekreasi. Dikelilingi oleh danau yang memukau, memberikan suasana tenang bagi pengunjung yang ingin bersantai."
+    deskripsi2 = "Pengunjung dapat menikmati berbagai aktivitas seperti naik perahu dayung, bersepeda air, atau hanya sekedar bersantai di tepi danau."
+    deskripsi3 = "Dengan harga Rp 10.000,00/orang, Anda bisa menghabiskan waktu bersama keluarga atau teman sambil menikmati keindahan alam yang menawan."
 
     label_deskripsi1 = Label(Balekambang, text=deskripsi1, bg="#354f00", fg="white")
     label_deskripsi1.pack(pady=10)
@@ -233,9 +233,9 @@ def Memilih_Wisata():
 
     Mangkunegaran = Frame(window3, width=1000, height=100, bg="#354f00")
     Mangkunegaran.place(x=300, y=470)
-    deskripsi1 = "Solo Safari adalah tempat wisata baru yang menarik di Solo, Jawa Tengah. Diresmikan pada tahun 2023, Solo Safari menawarkan pengalaman wisata alam dan edukasi dengan konsep kebun binatang modern."
-    deskripsi2 = "Fasilitas yang didapat apabila berkunjung ke Solo Safari antara lain: Zona Hewan, Petting Zoo, Safari Ride, dan Edukasi Konservasi."
-    deskripsi3 = "Dengan harga Rp 25.000,00/orang, Anda bisa merasakan petualangan seru serta menambah pengetahuan tentang dunia satwa. Dengan fasilitas lengkap dan pengalaman yang edukatif."
+    deskripsi1 = "Mangkunegaran adalah istana kerajaan yang menawan di Solo, Jawa Tengah yang mempersembahkan keagungan sejarah dan budaya Jawa kepada pengunjungnya."
+    deskripsi2 = "Pengunjung bisa menikmati keagungan arsitektur, pameran seni dan artefak, serta tur pemandu wisata."
+    deskripsi3 = "Dengan harga Rp 20.000,00/orang, Mangkunegaran bisa memanjakan dan memikat bagi pecinta sejarah dan kebudayaan."
 
     label_deskripsi1 = Label(Mangkunegaran, text=deskripsi1, bg="#354f00", fg="white")
     label_deskripsi1.pack(pady=10)
@@ -246,9 +246,9 @@ def Memilih_Wisata():
 
     Tumurun = Frame(window3, width=1000, height=100, bg="#354f00")
     Tumurun.place(x=300, y=620)
-    deskripsi1 = "Solo Safari adalah tempat wisata baru yang menarik di Solo, Jawa Tengah. Diresmikan pada tahun 2023, Solo Safari menawarkan pengalaman wisata alam dan edukasi dengan konsep kebun binatang modern."
-    deskripsi2 = "Fasilitas yang didapat apabila berkunjung ke Solo Safari antara lain: Zona Hewan, Petting Zoo, Safari Ride, dan Edukasi Konservasi."
-    deskripsi3 = "Dengan harga Rp 25.000,00/orang, Anda bisa merasakan petualangan seru serta menambah pengetahuan tentang dunia satwa. Dengan fasilitas lengkap dan pengalaman yang edukatif."
+    deskripsi1 = "Museum Tumurun yang terletak di Solo, Jawa Tengah adalah museum yang menampilkan seni kontemporer dan interaktif dengan konsep modern yang mendalam."
+    deskripsi2 = "Pengunjung bisa menikmati seni kontemporer, pameran interaktif, ruangan tekamtik, dan juga fasilitas fotografi."
+    deskripsi3 = "Dengan harga Rp 30.000,00/orang, Museum Tumurun dapat menjadi tempat yang menarik bagi pecinta seni dan pengunjung yang ingin merasakan pengalaman seni yang berbeda dan menginspirasi."
 
     label_deskripsi1 = Label(Tumurun, text=deskripsi1, bg="#354f00", fg="white")
     label_deskripsi1.pack(pady=10)
